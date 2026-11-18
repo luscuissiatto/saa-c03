@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SAA-C03 · Estudo rápido</title>
+<meta name="description" content="Aulas animadas, flashcards e quiz gratuitos para a certificação AWS Certified Solutions Architect – Associate (SAA-C03), em português.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center;padding:clamp(32px,6vw,72px) 0 clamp(28px,4vw,48px)}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.hero .cta a{display:inline-flex;align-items:center;text-decoration:none}
+.stats{display:flex;gap:28px;margin-top:32px;flex-wrap:wrap}
+.stats div{border-top:3px solid var(--ink);padding-top:8px;min-width:96px}
+.stats b{display:block;font-stretch:125%;font-weight:800;font-size:clamp(34px,5vw,46px);line-height:1;font-variant-numeric:tabular-nums}
+.stats span{font-size:14px;color:var(--mut)}
+/* cartão de exemplo */
+.demo{position:relative;padding:0 18px 18px 0}
+.demo .back,.demo .front{border:2px solid var(--ink);background:var(--card);padding:24px}
+.demo .back{position:absolute;inset:18px 0 0 18px;background:var(--soft)}
+.demo .front{position:relative;box-shadow:0 18px 40px -18px var(--shadow)}
+.demo .tag{font-size:13px;font-weight:600;color:var(--mut)}
+.demo .q{font-weight:700;font-size:clamp(18px,2.2vw,22px);line-height:1.3;margin:10px 0 18px;text-wrap:balance}
+.demo .a{border-top:3px solid var(--red);padding-top:12px}
+.demo .a b{display:block;font-size:18px}
+.demo .a p{margin:4px 0 0;color:var(--mut);font-size:15px}
+/* linhas de seção */
+.rows{border-top:3px solid var(--ink)}
+.row{display:grid;grid-template-columns:clamp(56px,10vw,110px) minmax(0,1fr) auto;gap:clamp(12px,3vw,32px);align-items:center;padding:22px 0;border-bottom:1px solid var(--rule);text-decoration:none}
+.row:hover .go{background:var(--red);border-color:var(--red);color:#fff}
+.row .n{font-stretch:125%;font-weight:800;font-size:clamp(40px,6vw,64px);line-height:.9;color:var(--red);font-variant-numeric:tabular-nums}
+.row h3{font-stretch:110%;font-weight:800;font-size:clamp(20px,2.6vw,26px);margin:0 0 4px;line-height:1.15}
+.row p{margin:0;color:var(--mut);max-width:62ch}
+.go{border:2px solid var(--ink);min-height:44px;display:inline-flex;align-items:center;padding:0 16px;font-weight:600;white-space:nowrap}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,3vw,40px);margin-top:8px}
+.how div{border-top:1px solid var(--rule);padding-top:12px}
+.how b{display:block;font-size:17px;margin-bottom:4px}
+.how p{margin:0;color:var(--mut);font-size:15px}
+section{margin-top:clamp(36px,5vw,64px)}
+@media(max-width:820px){.hero{grid-template-columns:minmax(0,1fr)}.demo{max-width:520px}.how{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:560px){.row{grid-template-columns:52px minmax(0,1fr)}.row .go{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">SAA-C03 <b>·</b> estudo rápido</a>
+  <nav class="nav" aria-label="Seções">
+    <a href="index.html" aria-current="page">Início</a>
+    <a href="aulas.html">Aulas</a>
+    <a href="flashcards.html">Flashcards</a>
+    <a href="flashcards.html#quiz">Quiz</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Decore os gatilhos da prova de Solutions Architect</h1>
+      <p class="lede">Quase toda questão da SAA-C03 se decide por uma ou duas palavras no enunciado: “menor sobrecarga”, “UDP”, “sem passar pela internet”. Aqui você treina a ligação entre o gatilho e o serviço certo, em português.</p>
+      <div class="cta">
+        <a class="btn red" href="aulas.html">Começar pelas aulas</a>
+        <a class="btn" href="flashcards.html">Abrir os flashcards</a>
+      </div>
+      <div class="stats" id="stats">
+        <div><b id="nLessons">9</b><span>aulas animadas</span></div>
+        <div><b id="nCards">104</b><span>cartões</span></div>
+        <div><b id="nEss">57</b><span>essenciais</span></div>
+      </div>
+    </div>
+    <div class="demo" aria-hidden="true">
+      <div class="back"></div>
+      <div class="front">
+        <span class="tag">Rede e borda · essencial</span>
+        <p class="q">Qual solução minimiza latência e perda de pacotes para um jogo multiplayer com UDP em 8 regiões?</p>
+        <div class="a"><b>Global Accelerator</b><p>O Global Accelerator atende TCP e UDP. O CloudFront atende só HTTP/HTTPS.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="t-mod">
+    <h2 id="t-mod">Três formas de estudar</h2>
+    <div class="rows">
+      <a class="row" href="aulas.html">
+        <span class="n">01</span>
+        <div><h3>Aulas animadas</h3><p>Um diagrama que se monta cena a cena, com cerca de um minuto por tema e uma pergunta no fim. Multi-AZ ou read replica, NAT ou endpoint, SQS e SNS, classes do S3, gateways e mais.</p></div>
+        <span class="go">Assistir</span>
+      </a>
+      <a class="row" href="flashcards.html">
+        <span class="n">02</span>
+        <div><h3>Flashcards</h3><p>Pergunta na frente, serviço certo e o porquê no verso. Marque o que já sabe e revise só o que ainda erra. O progresso fica salvo no seu navegador.</p></div>
+        <span class="go">Revisar</span>
+      </a>
+      <a class="row" href="flashcards.html#quiz">
+        <span class="n">03</span>
+        <div><h3>Quiz</h3><p>Os mesmos cartões em múltipla escolha, com as alternativas que mais confundem na prova e a nota no fim da rodada.</p></div>
+        <span class="go">Testar</span>
+      </a>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-how">
+    <h2 id="t-how">Como tirar mais proveito</h2>
+    <div class="how">
+      <div><b>Lembre antes de virar</b><p>Responda de cabeça e só depois confira. Errar e corrigir fixa muito mais que reler um resumo.</p></div>
+      <div><b>Comece pelos essenciais</b><p>São os temas que aparecem em quase toda prova. Depois passe para o conjunto completo.</p></div>
+      <div><b>Simulado vira cartão</b><p>Cada erro num simulado é uma regra que faltava. Revise aqui até acertar duas rodadas seguidas.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>Projeto independente de estudo, sem vínculo com a Amazon Web Services. AWS e os nomes de serviços citados são marcas da Amazon.com, Inc. ou de suas afiliadas.</p>
+  <p>Os cartões são resumos escritos para estudo e não reproduzem questões da prova oficial. Confira sempre a documentação da AWS.</p>
+</footer>
+<script src="assets/cards.js"></script>
+<script src="assets/lessons-data.js"></script>
+<script>
+{
+  try{
+    document.getElementById('nCards').textContent=CARDS.length;
+    document.getElementById('nEss').textContent=CARDS.filter(c=>c.essencial).length;
+    document.getElementById('nLessons').textContent=LESSONS.length;
+  }catch(e){}
+}
+</script>
+</body>
+</html>

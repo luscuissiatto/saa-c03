@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aulas animadas · SAA-C03</title>
+<meta name="description" content="Aulas animadas de cerca de um minuto sobre os temas que mais caem na prova AWS SAA-C03.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.layout{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
+.list{border-top:3px solid var(--ink);position:sticky;top:16px}
+.item{display:grid;grid-template-columns:44px minmax(0,1fr);gap:10px;align-items:center;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--rule);padding:11px 6px 11px 0;cursor:pointer;min-height:52px}
+.item .n{font-stretch:125%;font-weight:800;font-size:24px;color:var(--mut);font-variant-numeric:tabular-nums;text-align:right}
+.item .t{font-weight:600;font-size:15px;line-height:1.3}
+.item .d{display:block;font-size:12px;font-weight:600;color:var(--ok);margin-top:2px}
+.item:hover{background:var(--soft)}
+.item[aria-current=true]{background:var(--ink);color:var(--bg)}
+.item[aria-current=true] .n{color:var(--red)}
+.item[aria-current=true] .d{color:inherit;opacity:.8}
+.player{border:2px solid var(--ink);background:var(--card);box-shadow:0 22px 44px -24px var(--shadow)}
+.segs{display:flex;gap:4px;padding:12px 14px 0}
+.segs i{flex:1;height:5px;background:var(--soft);overflow:hidden;cursor:pointer}
+.segs u{display:block;height:100%;width:0;background:var(--red)}
+.lt{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:12px 18px 0}
+.lt h2{margin:0;font-size:clamp(20px,2.6vw,26px)}
+.lt span{font-size:13px;color:var(--mut);white-space:nowrap}
+.fig{position:relative;aspect-ratio:640/380;cursor:pointer;margin:4px 6px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.n-{}
+.nd{opacity:0;transition:opacity .5s}.nd.on{opacity:1}.nd.x{opacity:.42}
+.nd rect{fill:var(--bg);stroke:var(--ink);stroke-width:2}
+.nd.hi rect{stroke:var(--red);stroke-width:4}
+.nd text{fill:var(--ink);font:700 13.5px Archivo,sans-serif;text-anchor:middle}
+.nd text.s{font-weight:400;font-size:11px;fill:var(--mut)}
+.nd .cx{stroke:var(--red);stroke-width:4;opacity:0}.nd.x .cx{opacity:1}
+.zn rect{fill:none;stroke:var(--mut);stroke-width:1.5;stroke-dasharray:6 5}
+.zn.hi rect{stroke:var(--red);stroke-width:3}
+.zn text{font:600 12px Archivo,sans-serif;fill:var(--mut);text-anchor:start}
+.fl line{stroke:var(--ink);stroke-width:2.5}
+.fl.alt line{stroke:var(--mut);stroke-dasharray:5 5}
+.fl.no line{stroke:var(--red);stroke-dasharray:7 5}
+.fl circle{fill:var(--red)}.fl.alt circle{fill:var(--mut)}
+.fl text{font:600 12px Archivo,sans-serif;fill:var(--ink);text-anchor:middle;paint-order:stroke;stroke:var(--card);stroke-width:5px}
+.fl .bx{font:800 34px Archivo,sans-serif;fill:var(--red)}
+.mk-ok{fill:var(--ink)}.mk-alt{fill:var(--mut)}.mk-no{fill:var(--red)}
+.cap{padding:16px 20px 8px;font-size:clamp(16px,2vw,18px);min-height:124px;border-top:1px solid var(--rule)}
+.cap p{margin:0;max-width:70ch}
+.cap .qq{font-weight:700;font-size:clamp(17px,2.2vw,20px);margin-bottom:12px}
+.opts{display:grid;gap:8px}
+.opt{display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;text-align:left;font-size:16px;line-height:1.4;background:var(--bg);border:2px solid var(--rule);padding:10px 14px;min-height:46px;cursor:pointer}
+.opt span{font-weight:800;color:var(--mut)}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.opt.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 9%,transparent)}
+.opt:disabled{cursor:default}
+.fb{margin:12px 0 0!important}.fb strong{color:var(--ok)}.fb strong.no{color:var(--red-ink)}
+.ctl{display:flex;gap:8px;flex-wrap:wrap;align-items:center;padding:10px 14px 16px}
+.ctl .keys{margin-left:auto;font-size:13px;color:var(--mut);display:flex;gap:10px;flex-wrap:wrap}
+@media(max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}.list{position:static;display:flex;gap:6px;overflow-x:auto;border-top:0;padding-bottom:6px}.item{flex:0 0 auto;width:auto;border:2px solid var(--rule);grid-template-columns:auto auto;padding:8px 12px;min-height:44px}.item .n{font-size:18px}.item .t{white-space:nowrap}.item .d{display:none}.item.ok{border-color:var(--ok)}}
+.figwrap{overflow-x:auto}
+@media(max-width:600px){.fig{min-width:560px}}
+@media(max-width:560px){.cap{min-height:150px}.ctl .keys{display:none}.lt span{display:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">SAA-C03 <b>·</b> estudo rápido</a>
+  <nav class="nav" aria-label="Seções">
+    <a href="index.html">Início</a>
+    <a href="aulas.html" aria-current="page">Aulas</a>
+    <a href="flashcards.html">Flashcards</a>
+    <a href="flashcards.html#quiz">Quiz</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="pagehead">
+    <h1>Aulas animadas</h1>
+    <p class="lede">Cada aula dura cerca de um minuto: o diagrama se monta cena a cena e termina com uma pergunta. Toque no diagrama para pausar.</p>
+  </div>
+  <div class="layout">
+    <nav class="list" id="list" aria-label="Aulas"></nav>
+    <section class="player" aria-label="Player da aula">
+      <div class="segs" id="segs"></div>
+      <div class="lt"><h2 id="lt"></h2><span id="cnt"></span></div>
+      <div class="figwrap"><div class="fig" id="fig"><svg id="svg" viewBox="0 0 640 380" role="img" aria-label="Diagrama animado da aula"></svg></div></div>
+      <div class="cap" id="cap" aria-live="polite"></div>
+      <div class="ctl">
+        <button class="btn" id="prev">Voltar</button>
+        <button class="btn red" id="play">Pausar</button>
+        <button class="btn" id="next">Avançar</button>
+        <button class="btn" id="again">Rever</button>
+        <span class="keys"><span><span class="kbd">espaço</span> pausar</span><span><span class="kbd">←</span><span class="kbd">→</span> cenas</span></span>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap foot">
+  <p>Projeto independente de estudo, sem vínculo com a Amazon Web Services. Os diagramas são simplificações para memorizar; confira os detalhes na documentação da AWS.</p>
+  <p>As aulas em que você acerta a pergunta ficam marcadas só neste navegador.</p>
+</footer>
+<script src="assets/lessons-data.js"></script>
+<script src="assets/aulas.js"></script>
+</body>
+</html>

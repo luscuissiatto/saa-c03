@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Flashcards e quiz · SAA-C03</title>
+<meta name="description" content="Flashcards e quiz gratuitos para a certificação AWS SAA-C03, em português.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:clamp(24px,4vw,40px) 0 16px}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:14px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.bar .sp{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
+.meter{display:flex;align-items:center;gap:14px;margin-top:18px;font-size:14px;color:var(--mut)}
+.meter .track{flex:1;height:6px;background:var(--soft)}
+.meter i{display:block;height:100%;background:var(--red);transition:width .4s}
+.meter b{color:var(--ink);font-variant-numeric:tabular-nums}
+.stage{display:grid;grid-template-columns:clamp(70px,13vw,140px) minmax(0,1fr);gap:clamp(14px,3vw,32px);margin-top:26px}
+.num{font-stretch:125%;font-weight:800;font-size:clamp(60px,11vw,120px);line-height:.85;color:var(--red);text-align:right;font-variant-numeric:tabular-nums}
+.num small{display:block;font-size:15px;font-stretch:100%;font-weight:600;color:var(--mut);margin-top:10px;line-height:1.3}
+.tag{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--mut);margin-bottom:12px}
+.tag .ess{color:var(--red-ink)}
+.q{font-size:clamp(20px,2.7vw,26px);font-weight:700;line-height:1.28;margin:0 0 18px;text-wrap:balance}
+/* cartão que vira */
+.flip{perspective:1600px;cursor:pointer}
+.flip .in{display:grid;transition:transform .55s cubic-bezier(.2,.7,.2,1);transform-style:preserve-3d}
+.flip.on .in{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:2px solid var(--ink);background:var(--card);padding:clamp(20px,3.4vw,34px);min-height:320px;display:flex;flex-direction:column;box-shadow:0 22px 44px -24px var(--shadow)}
+.face.b{transform:rotateY(180deg)}
+.face .hint{margin-top:auto;color:var(--mut);font-size:14px}
+.ans{border-top:4px solid var(--red);padding-top:16px}
+.ans b{display:block;font-size:clamp(19px,2.4vw,23px);line-height:1.25;margin-bottom:8px}
+.ans p{margin:0;font-size:17px}
+.card{border:2px solid var(--ink);background:var(--card);padding:clamp(20px,3.4vw,34px);box-shadow:0 22px 44px -24px var(--shadow)}
+.opts{display:grid;gap:10px}
+.opt{display:grid;grid-template-columns:32px minmax(0,1fr);gap:10px;align-items:start;text-align:left;font-size:16px;line-height:1.4;background:var(--bg);border:2px solid var(--rule);padding:12px 14px;min-height:48px;cursor:pointer}
+.opt span{font-weight:800;color:var(--mut)}
+.opt:hover:not(:disabled){border-color:var(--ink)}
+.opt.right{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 12%,transparent)}
+.opt.right span{color:var(--ok)}
+.opt.wrong{border-color:var(--red);background:color-mix(in srgb,var(--red) 9%,transparent)}
+.opt.wrong span{color:var(--red-ink)}
+.opt:disabled{cursor:default}
+.fb{margin:16px 0 0;font-size:16px}
+.fb strong{color:var(--ok)}.fb strong.no{color:var(--red-ink)}
+.act{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.act .btn{flex:1 1 160px}
+.keys{margin-top:14px;font-size:13px;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap}
+.end .big{font-stretch:112%;font-weight:800;font-size:clamp(40px,7vw,64px);line-height:1;margin:0 0 10px}
+.end p{margin:0 0 4px}
+@media(max-width:640px){.stage{grid-template-columns:minmax(0,1fr)}.num{text-align:left;font-size:56px;display:flex;align-items:baseline;gap:12px}.num small{margin:0}.bar .sp{margin-left:0}.face{min-height:280px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html">SAA-C03 <b>·</b> estudo rápido</a>
+  <nav class="nav" aria-label="Seções">
+    <a href="index.html">Início</a>
+    <a href="aulas.html">Aulas</a>
+    <a href="flashcards.html" id="navF">Flashcards</a>
+    <a href="flashcards.html#quiz" id="navQ">Quiz</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+  <div class="head">
+    <div>
+      <h1 id="title">Flashcards</h1>
+      <p class="lede" id="sub">Responda de cabeça antes de virar. Marque “Acertei” só se sabia o porquê.</p>
+    </div>
+    <div class="seg" role="group" aria-label="Modo">
+      <button id="mFlash" aria-pressed="true">Flashcards</button>
+      <button id="mQuiz" aria-pressed="false">Quiz</button>
+    </div>
+  </div>
+
+  <div class="bar">
+    <select class="sel" id="set" aria-label="Conjunto">
+      <option value="ess">Essenciais</option>
+      <option value="all">Todos os cartões</option>
+    </select>
+    <select class="sel" id="topic" aria-label="Tema"></select>
+    <select class="sel" id="todo" aria-label="Situação">
+      <option value="all">Todos</option>
+      <option value="todo">Só os que ainda erro</option>
+    </select>
+    <div class="sp">
+      <button class="btn" id="shuffle">Embaralhar</button>
+      <button class="btn" id="reset">Zerar progresso</button>
+    </div>
+  </div>
+  <div class="meter"><span><b id="known">0</b> de <b id="total">0</b> dominados</span><div class="track"><i id="fill" style="width:0"></i></div></div>
+
+  <div id="main" aria-live="polite"></div>
+</main>
+
+<footer class="wrap foot">
+  <p>Projeto independente de estudo, sem vínculo com a Amazon Web Services. Os cartões são resumos escritos para estudo e não reproduzem questões da prova oficial.</p>
+  <p>O progresso fica salvo só neste navegador.</p>
+</footer>
+<script src="assets/cards.js"></script>
+<script src="assets/flashcards.js"></script>
+</body>
+</html>

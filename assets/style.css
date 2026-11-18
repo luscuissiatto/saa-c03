@@ -1,0 +1,57 @@
+/* VOICE: direto e calmo, ferramenta de estudo — nada de enfeite
+   IDEA: um quadro de horários suíço: números grandes pendurados à esquerda, régua grossa, linhas
+   PICTURE: o próprio cartão ou o diagrama animado, grande, no topo de cada página
+   COLOUR and TYPE: branco, tinta quase preta, um vermelho sinal; Archivo larga 800 + Archivo
+   LAYOUT: borda esquerda rígida, conteúdo até 1100px, empilha abaixo de 720px */
+:root{
+  color-scheme:light dark;
+  --bg:light-dark(#ffffff,#0e0e0f);
+  --ink:light-dark(#121214,#f1f1f1);
+  --mut:light-dark(#62626a,#9b9ba3);
+  --rule:light-dark(#dcdce0,#2a2a2e);
+  --soft:light-dark(#f3f3f5,#1a1a1d);
+  --card:light-dark(#ffffff,#151517);
+  --red:#e4002b;
+  --red-ink:light-dark(#c50025,#ff4d6a);
+  --ok:light-dark(#0a7a3d,#3ccf7c);
+  --shadow:light-dark(rgba(18,18,20,.10),rgba(0,0,0,.5));
+}
+*{box-sizing:border-box;min-width:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Archivo,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:0 max(4vw,16px)}
+button,select{font:inherit;color:inherit}
+
+/* topo */
+.top{border-top:8px solid var(--ink);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:20px;min-height:64px;flex-wrap:wrap}
+.brand{font-stretch:115%;font-weight:800;font-size:18px;text-decoration:none;letter-spacing:-.01em;white-space:nowrap}
+.brand b{color:var(--red)}
+.nav{display:flex;gap:4px;margin-left:auto;flex-wrap:wrap}
+.nav a{text-decoration:none;font-weight:600;font-size:15px;padding:10px 12px;border-bottom:3px solid transparent}
+.nav a:hover{border-bottom-color:var(--rule)}
+.nav a[aria-current=page]{border-bottom-color:var(--red)}
+
+h1{font-stretch:112%;font-weight:800;font-size:clamp(32px,5.4vw,52px);line-height:1.04;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-stretch:112%;font-weight:800;font-size:clamp(22px,3vw,28px);line-height:1.1;margin:0 0 14px;text-wrap:balance}
+.lede{font-size:clamp(17px,2vw,19px);color:var(--mut);max-width:62ch;margin:14px 0 0}
+.pagehead{padding:clamp(28px,4vw,48px) 0 20px}
+
+/* controles */
+.btn,.sel{min-height:44px;padding:0 16px;border:2px solid var(--ink);background:var(--bg);font-weight:600;font-size:15px;cursor:pointer;border-radius:0}
+.sel{font-size:16px;padding-right:34px;appearance:none;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 18px) 19px,calc(100% - 13px) 19px;background-size:5px 5px;background-repeat:no-repeat}
+.btn:hover{background:var(--soft)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff}
+.btn.red:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.4;cursor:default}
+.seg{display:inline-flex;border:2px solid var(--ink)}
+.seg button{border:0;background:none;padding:0 18px;min-height:40px;font-weight:600;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+:is(a,button,select,[tabindex]):focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.kbd{display:inline-block;border:1px solid var(--rule);border-bottom-width:2px;padding:0 6px;font-size:12px;line-height:20px;border-radius:3px;color:var(--mut)}
+
+.foot{margin-top:56px;border-top:1px solid var(--rule);padding-top:20px;padding-bottom:40px;color:var(--mut);font-size:14px}
+.foot p{margin:0 0 6px;max-width:80ch}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
