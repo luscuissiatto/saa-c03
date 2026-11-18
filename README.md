@@ -2,6 +2,10 @@
 
 Material gratuito, em português, para a certificação **AWS Certified Solutions Architect – Associate (SAA-C03)**.
 
+**🔗 Acesse: [luscuissiatto.github.io/saa-c03](https://luscuissiatto.github.io/saa-c03/)**
+
+[Aulas animadas](https://luscuissiatto.github.io/saa-c03/aulas.html) · [Flashcards](https://luscuissiatto.github.io/saa-c03/flashcards.html) · [Quiz](https://luscuissiatto.github.io/saa-c03/flashcards.html#quiz)
+
 A ideia é simples: quase toda questão da prova se decide por uma ou duas palavras no enunciado, como "menor sobrecarga operacional", "UDP" ou "sem passar pela internet". Este site treina a ligação entre esse gatilho e o serviço certo.
 
 ## O que tem aqui
@@ -18,10 +22,10 @@ O progresso (cartões dominados e aulas feitas) fica salvo no `localStorage` do 
 
 ## Como usar
 
-- **Online:** publique pelo GitHub Pages (abaixo) e abra o link.
+- **Online:** abra [luscuissiatto.github.io/saa-c03](https://luscuissiatto.github.io/saa-c03/).
 - **Local:** baixe o repositório e abra o `index.html` no navegador. Não precisa instalar nada.
 
-### Publicar no GitHub Pages
+### Publicar a sua própria cópia (fork)
 
 1. Envie os arquivos para um repositório público.
 2. Em **Settings → Pages**, escolha **Deploy from a branch**, a branch `main` e a pasta `/ (root)`.
