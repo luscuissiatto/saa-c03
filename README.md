@@ -12,11 +12,16 @@ A ideia é simples: quase toda questão da prova se decide por uma ou duas palav
 
 | | |
 |---|---|
-| **Aulas animadas** | 9 aulas de cerca de um minuto. Um diagrama se monta cena a cena e cada aula termina com uma pergunta. |
+| **Aulas animadas** | 19 aulas de cerca de um minuto. O diagrama se monta cena a cena, cada cena tem um título com a ideia principal, e a aula termina com uma cola “para a prova” e uma pergunta. |
 | **Flashcards** | 104 cartões com a pergunta na frente e o serviço certo, com o porquê, no verso. 57 estão marcados como essenciais. |
 | **Quiz** | Os mesmos cartões em múltipla escolha, com as alternativas que mais confundem. |
 
-Temas das aulas: RDS Multi-AZ vs. read replica · NAT gateway vs. endpoints · security group vs. NACL · SQS e SNS · classes do S3 · CloudFront vs. Global Accelerator · CloudTrail, Config e CloudWatch · gateways de rede · API Gateway, Storage Gateway e Gateway Load Balancer.
+Temas das aulas:
+
+- **Segurança:** IAM (usuários, roles, políticas e SCP) · security group vs. NACL · criptografia com KMS, ACM e Secrets Manager · CloudTrail, Config, CloudWatch, GuardDuty e Inspector
+- **Rede:** gateways de rede · endpoints · ALB, NLB e GWLB · CloudFront vs. Global Accelerator · políticas do Route 53 · API Gateway, Storage Gateway e Gateway Load Balancer
+- **Resiliência:** RDS Multi-AZ vs. read replica · estratégias de DR · SQS e SNS · Kinesis, Firehose ou SQS · Auto Scaling
+- **Armazenamento e custo:** EBS, EFS, FSx ou S3 · classes do S3 · opções de compra do EC2 · migração com DataSync, Snowball, DMS e Transfer Family
 
 O progresso (cartões dominados e aulas feitas) fica salvo no `localStorage` do navegador. Não há servidor, login nem coleta de dados.
 
@@ -40,7 +45,7 @@ flashcards.html       flashcards e quiz (quiz em flashcards.html#quiz)
 assets/style.css      estilo compartilhado
 assets/cards.js       banco de cartões (edite aqui para adicionar)
 assets/flashcards.js  lógica dos flashcards e do quiz
-assets/lessons-data.js  roteiro e diagramas das aulas
+assets/lessons-data.js  roteiro e diagramas das aulas (formato explicado no topo do arquivo)
 assets/aulas.js       player das aulas
 ```
 
